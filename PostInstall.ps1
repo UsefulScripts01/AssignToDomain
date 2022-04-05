@@ -6,7 +6,7 @@
 ##
 
 #Get user input
-$cred = Get-Credential DS\XWHD46-ADM
+$cred = Get-Credential
 $computername = Read-Host -Prompt "NAZWA HOSTA"
 
 
