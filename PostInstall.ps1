@@ -15,7 +15,7 @@ Get-WindowsCapability -Online -name Rsat.ActiveDirectory.DS-LDS.Tools* | Add-Win
 
 #Gather data
 $ouPath = 'OU_PATCH'
-$server = 'AEUC1DSDC1253.ds.mot.com'
+$server = 'YOUR.DOMAIN.COM'
 $coreId = $computername.Split('-')[0]
 $asset = (Get-WmiObject win32_systemenclosure | Select-Object SMBIOSAssetTag).SMBIOSAssetTag
 $serial = (Get-WmiObject win32_bios | Select-Object SerialNumber).SerialNumber
