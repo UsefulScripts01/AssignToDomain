@@ -14,7 +14,7 @@ $computername = Read-Host -Prompt "NAZWA HOSTA"
 Get-WindowsCapability -Online -name Rsat.ActiveDirectory.DS-LDS.Tools* | Add-WindowsCapability -Online -ErrorAction Continue
 
 #Gather data
-$ouPath = 'OU=Workstations,OU=ZPL13,OU=Poland,OU=Motorola,DC=ds,DC=mot,DC=com'
+$ouPath = 'OU_PATCH'
 $server = 'AEUC1DSDC1253.ds.mot.com'
 $coreId = $computername.Split('-')[0]
 $asset = (Get-WmiObject win32_systemenclosure | Select-Object SMBIOSAssetTag).SMBIOSAssetTag
@@ -46,7 +46,7 @@ catch{
 Rename-Computer -NewName $computername
 
 try{
-    Add-Computer -DomainName 'ds.mot.com' -Credential $cred -Options JoinWithNewName
+    Add-Computer -DomainName 'DOMAIN.COM' -Credential $cred -Options JoinWithNewName
 }
 catch {
     Write-Host $Error
